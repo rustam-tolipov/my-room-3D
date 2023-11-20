@@ -5,8 +5,9 @@ import React, { useEffect, useRef, useState } from 'react';
 const MyCamera = () => {
   const cameraRef = useRef();
 
-  const [position, setPosition] = useState([0, 0, 0]);
-  const [rotation, setRotation] = useState([0, 0, 0]);
+  const [position, setPosition] = useState([3.8, 1.9, -10.0]);
+  const [rotation, setRotation] = useState([0.8, -0.1, -0]);
+  const [fov, setFov] = useState(13);
 
   // const { x, y, z } = useControls({
   //   x: {
@@ -59,19 +60,17 @@ const MyCamera = () => {
   //   },
   // });
 
-  const [fov, setFov] = useState(15);
+  // useEffect(() => {
+  //   setPosition([x, y, z]);
+  // }, [x, y, z]);
 
-  useEffect(() => {
-    setPosition([x, y, z]);
-  }, [x, y, z]);
+  // useEffect(() => {
+  //   setRotation([rx, ry, rz]);
+  // }, [rx, ry, rz]);
 
-  useEffect(() => {
-    setRotation([rx, ry, rz]);
-  }, [rx, ry, rz]);
-
-  useEffect(() => {
-    setFov(fovValue);
-  }, [fovValue]);
+  // useEffect(() => {
+  //   setFov(fovValue);
+  // }, [fovValue]);
 
   return (
     <>

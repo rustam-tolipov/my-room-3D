@@ -11,58 +11,58 @@ import MyCamera from './Camera';
 export const Experience = () => {
   const lightRef = useRef();
 
-  const [roomPosition, setRoomPosition] = useState([0, 0, 0]);
-  const [roomRotation, setRoomRotation] = useState([0, 0, 0]);
+  const [roomPosition, setRoomPosition] = useState([-0.2, -0.5, 0]);
+  const [roomRotation, setRoomRotation] = useState([0, 0.5, 0]);
 
-  const { roomX, roomY, roomZ } = useControls({
-    roomX: {
-      value: 0,
-      min: -10,
-      max: 10,
-      step: 0.1,
-    },
-    roomY: {
-      value: -0.5,
-      min: -10,
-      max: 10,
-      step: 0.1,
-    },
-    roomZ: {
-      value: 0,
-      min: -10,
-      max: 10,
-      step: 0.1,
-    },
-  });
+  // const { roomX, roomY, roomZ } = useControls({
+  //   roomX: {
+  //     value: 0,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.1,
+  //   },
+  //   roomY: {
+  //     value: -0.5,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.1,
+  //   },
+  //   roomZ: {
+  //     value: 0,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.1,
+  //   },
+  // });
 
-  const { roomRX, roomRY, roomRZ } = useControls({
-    roomRX: {
-      value: 0,
-      min: -10,
-      max: 10,
-      step: 0.1,
-    },
-    roomRY: {
-      value: 0.5,
-      min: -10,
-      max: 10,
-      step: 0.1,
-    },
-    roomRZ: {
-      value: 0,
-      min: -10,
-      max: 10,
-      step: 0.1,
-    },
-  });
+  // const { roomRX, roomRY, roomRZ } = useControls({
+  //   roomRX: {
+  //     value: 0,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.1,
+  //   },
+  //   roomRY: {
+  //     value: 0.5,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.1,
+  //   },
+  //   roomRZ: {
+  //     value: 0,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.1,
+  //   },
+  // });
 
-  useEffect(() => {
-    setRoomPosition([roomX, roomY, roomZ]);
-  }, [roomX, roomY, roomZ]);
+  // useEffect(() => {
+  //   setRoomPosition([roomX, roomY, roomZ]);
+  // }, [roomX, roomY, roomZ]);
 
-  useEffect(() => {
-    setRoomRotation([roomRX, roomRY, roomRZ]);
-  }, [roomRX, roomRY, roomRZ]);
+  // useEffect(() => {
+  //   setRoomRotation([roomRX, roomRY, roomRZ]);
+  // }, [roomRX, roomRY, roomRZ]);
 
   return (
     <>

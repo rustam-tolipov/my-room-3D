@@ -24,7 +24,7 @@ export function WorkRoom(props) {
   const video = useVideoTexture(url);
   const imageTexture = useTexture(imgUrl);
 
-  const [screen, setScreen] = useState([0, 0, 0]);
+  const [screen, setScreen] = useState([-0.44, 0.275, 1]);
 
   // const { screenx, screeny, screenz } = useControls({
   //   screenx: {
@@ -47,9 +47,9 @@ export function WorkRoom(props) {
   //   },
   // });
 
-  useEffect(() => {
-    setScreen([screenx, screeny, screenz]);
-  }, [screenx, screeny, screenz]);
+  // useEffect(() => {
+  //   setScreen([screenx, screeny, screenz]);
+  // }, [screenx, screeny, screenz]);
 
   return (
     <group {...props} dispose={null} ref={roomRef}>
