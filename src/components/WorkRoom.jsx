@@ -26,26 +26,26 @@ export function WorkRoom(props) {
 
   const [screen, setScreen] = useState([0, 0, 0]);
 
-  const { screenx, screeny, screenz } = useControls({
-    screenx: {
-      value: -0.44,
-      min: -10,
-      max: 10,
-      step: 0.001,
-    },
-    screeny: {
-      value: 0.275,
-      min: -10,
-      max: 10,
-      step: 0.001,
-    },
-    screenz: {
-      value: 1,
-      min: -10,
-      max: 10,
-      step: 0.001,
-    },
-  });
+  // const { screenx, screeny, screenz } = useControls({
+  //   screenx: {
+  //     value: -0.44,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.001,
+  //   },
+  //   screeny: {
+  //     value: 0.275,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.001,
+  //   },
+  //   screenz: {
+  //     value: 1,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.001,
+  //   },
+  // });
 
   useEffect(() => {
     setScreen([screenx, screeny, screenz]);
