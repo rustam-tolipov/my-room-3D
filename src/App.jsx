@@ -3,6 +3,7 @@ import { Experience } from './components/Experience';
 import { Suspense, useEffect, useState } from 'react';
 
 import rotate from './assets/rotate.mp4';
+import { Html } from '@react-three/drei';
 
 function App() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -27,7 +28,7 @@ function App() {
     <>
       <Canvas shadows colorManagement gl={{ antialias: false }}>
         <color attach='background' args={['#000']} />
-        <Suspense>
+        <Suspense fallback={<LoadingFallback />}>
           <Experience />
         </Suspense>
       </Canvas>
@@ -43,5 +44,15 @@ function App() {
     </>
   );
 }
+
+const LoadingFallback = () => {
+  return (
+    <Html center>
+      <div className='loading'>
+        <span className='loading-text'>Loading...</span>
+      </div>
+    </Html>
+  );
+};
 
 export default App;
