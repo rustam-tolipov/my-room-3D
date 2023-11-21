@@ -3,9 +3,16 @@
   height: 100vh;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   user-select: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .sofa {
@@ -16,4 +23,26 @@ body {
   font-size: 18px;
   transform: scale(0.2);
   width: fit-content;
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  html {
+    /* 8px / 16px = 0.5 = 50% */
+    font-size: 50%;
+  }
+
+  .rotate-alert {
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: red;
+    z-index: 100;
+  }
 }
