@@ -5,23 +5,15 @@
 
 body {
   margin: 0;
+  user-select: none;
 }
 
-.content {
-  width: 17px;
-  height: 10.8px;
-  background: #f0f0f0;
-  /* border-radius: 3px; */
-  /* overflow-y: auto; */
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.video {
-  width: 100%;
-  height: 100%;
-  font-size: 1px;
+.sofa {
+  color: skyblue;
+  border: skyblue 1px solid;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 18px;
+  transform: scale(0.2);
+  width: fit-content;
 }

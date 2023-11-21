@@ -7,7 +7,6 @@ import * as THREE from 'three';
 
 import url from '../assets/video.mp4';
 import imgUrl from '../assets/screenshot.png';
-import { useLoader } from '@react-three/fiber';
 
 export function WorkRoom(props) {
   const roomRef = useRef();
@@ -24,32 +23,38 @@ export function WorkRoom(props) {
   const video = useVideoTexture(url);
   const imageTexture = useTexture(imgUrl);
 
-  const [screen, setScreen] = useState([-0.44, 0.275, 1]);
+  const [screen, setScreen] = useState([0, 0, 0]);
 
-  // const { screenx, screeny, screenz } = useControls({
-  //   screenx: {
-  //     value: -0.44,
-  //     min: -10,
-  //     max: 10,
-  //     step: 0.001,
-  //   },
-  //   screeny: {
-  //     value: 0.275,
-  //     min: -10,
-  //     max: 10,
-  //     step: 0.001,
-  //   },
-  //   screenz: {
-  //     value: 1,
-  //     min: -10,
-  //     max: 10,
-  //     step: 0.001,
-  //   },
-  // });
+  const { screenx, screeny, screenz } = useControls({
+    screenx: {
+      value: -0.44,
+      min: -10,
+      max: 10,
+      step: 0.001,
+    },
+    screeny: {
+      value: 0.275,
+      min: -10,
+      max: 10,
+      step: 0.001,
+    },
+    screenz: {
+      value: 1,
+      min: -10,
+      max: 10,
+      step: 0.001,
+    },
+  });
 
-  // useEffect(() => {
-  //   setScreen([screenx, screeny, screenz]);
-  // }, [screenx, screeny, screenz]);
+  useEffect(() => {
+    setScreen([screenx, screeny, screenz]);
+  }, [screenx, screeny, screenz]);
+
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    document.body.style.cursor = hovered ? 'pointer' : 'auto';
+  }, [hovered]);
 
   return (
     <group {...props} dispose={null} ref={roomRef}>
@@ -250,6 +255,7 @@ export function WorkRoom(props) {
         position={[-0.759, 0, 0.126]}
         rotation={[0, Math.PI / 2, 0]}
       />
+
       <mesh
         castShadow
         receiveShadow
@@ -278,6 +284,9 @@ export function WorkRoom(props) {
         material={textureSetMaterial}
         position={[-0.703, 0.068, -0.913]}
         scale={[1, 0.628, 1]}
+        onClick={() => {
+          props.setCameraTarget('back');
+        }}
       />
       <mesh
         castShadow
@@ -333,34 +342,42 @@ export function WorkRoom(props) {
         rotation={[0, -Math.PI / 2, 0]}
         scale={0.217}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.tv.geometry}
-        // material={textureSetMaterial}
-        position={[-0.834, 0.35, -0.913]}
-        rotation={[0, -Math.PI / 2, 0]}
-        scale={0.709}
+      <group
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+        onClick={() => {
+          props.setCameraTarget('sofa');
+        }}
       >
-        <meshStandardMaterial
-          attach='material'
-          color='#000000'
-          metalness={0.1}
-          roughness={0.5}
-        />
-      </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.tv.geometry}
+          // material={textureSetMaterial}
+          position={[-0.834, 0.35, -0.913]}
+          rotation={[0, -Math.PI / 2, 0]}
+          scale={0.709}
+        >
+          <meshStandardMaterial
+            attach='material'
+            color='#000000'
+            metalness={0.1}
+            roughness={0.5}
+          />
+        </mesh>
 
-      <mesh
-        position={[-0.832, 0.35, -0.913]}
-        rotation={[0, -Math.PI / 2, 0]}
-        scale={0.709}
-      >
-        {/* -0.92 0.56*/}
-        <planeGeometry args={[-0.95, 0.58, 1]} />
-        <meshStandardMaterial side={THREE.DoubleSide}>
-          <primitive attach='map' object={video} />
-        </meshStandardMaterial>
-      </mesh>
+        <mesh
+          position={[-0.832, 0.35, -0.913]}
+          rotation={[0, -Math.PI / 2, 0]}
+          scale={0.709}
+        >
+          <planeGeometry args={[-0.95, 0.58, 1]} />
+          <meshStandardMaterial side={THREE.DoubleSide}>
+            <primitive attach='map' object={video} />
+          </meshStandardMaterial>
+        </mesh>
+      </group>
+
       <group
         position={[-0.687, 0.417, 0.822]}
         rotation={[-Math.PI, 0, -Math.PI]}
@@ -565,15 +582,8 @@ export function WorkRoom(props) {
         material={textureSetMaterial}
         position={[-0.332, 0.656, 0.877]}
         rotation={[-0.217, 0, 0]}
-      >
-        <meshStandardMaterial
-          attach='material'
-          color='#000000'
-          metalness={1}
-          roughness={0.5}
-        />
-      </mesh>
-      <mesh position={[-0.332, 0.656, 0.874]} rotation={[0, 0, 0]}>
+      />
+      <mesh position={[-0.332, 0.656, 0.864]} rotation={[0, 0, 0]}>
         <planeGeometry args={screen} />
         {/* <meshStandardMaterial side={THREE.DoubleSide}>
           <primitive attach='map' object={video} />
