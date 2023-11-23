@@ -66,7 +66,7 @@ export const Experience = () => {
 
   const [cameraTarget, setCameraTarget] = useState('base');
   const tvTarget = {
-    position: [1.161860729909423, 0.3339742322090275, -1.684096938648391],
+    position: [1.161860729909423, 0.3339742322090275, -1.80096938648391],
     rotation: [-2.766601164555171, 1.0314131631683943, 2.81588739972729],
     currentRotation: {
       _x: -2.9538307070761998,
