@@ -125,7 +125,7 @@ export const Experience = () => {
         enableDamping={true}
         zoomDampingFactor={1}
       />
-      <ambientLight color='#51E2F5' intensity={1} />
+      <ambientLight color='#51E2F5' intensity={1.2} />
 
       <WorkRoom
         position={roomPosition}

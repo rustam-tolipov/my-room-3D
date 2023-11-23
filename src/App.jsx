@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <Canvas shadows colorManagement gl={{ antialias: false }}>
+      <Canvas shadows colorManagement gl={{ antialias: true }}>
         <color attach='background' args={['#000']} />
         <Suspense fallback={<LoadingFallback />}>
           <Experience />
