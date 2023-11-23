@@ -31,31 +31,31 @@ export function WorkRoom(props) {
 
   const [screen, setScreen] = useState([-0.44, 0.275, 1]);
 
-  const { screenx, screeny, screenz } = useControls({
-    // args={[0.4, 0.3, 1]}
-    screenx: {
-      value: -0.44,
-      min: -10,
-      max: 10,
-      step: 0.001,
-    },
-    screeny: {
-      value: 0.275,
-      min: -10,
-      max: 10,
-      step: 0.001,
-    },
-    screenz: {
-      value: 1,
-      min: -10,
-      max: 10,
-      step: 0.001,
-    },
-  });
+  // const { screenx, screeny, screenz } = useControls({
+  //   // args={[0.4, 0.3, 1]}
+  //   screenx: {
+  //     value: -0.44,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.001,
+  //   },
+  //   screeny: {
+  //     value: 0.275,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.001,
+  //   },
+  //   screenz: {
+  //     value: 1,
+  //     min: -10,
+  //     max: 10,
+  //     step: 0.001,
+  //   },
+  // });
 
-  useEffect(() => {
-    setScreen([screenx, screeny, screenz]);
-  }, [screenx, screeny, screenz]);
+  // useEffect(() => {
+  //   setScreen([screenx, screeny, screenz]);
+  // }, [screenx, screeny, screenz]);
 
   let roomTargetPosition = [2.9, 3.5, -6.6];
   let roomTargetRotation = [0, -0.4, 0];

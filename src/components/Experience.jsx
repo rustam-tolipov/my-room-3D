@@ -11,7 +11,7 @@ import { useFrame } from '@react-three/fiber';
 export const Experience = () => {
   const lightRef = useRef();
   const controlsRef = useRef();
-  const [roomPosition, setRoomPosition] = useState([-0.2, -0.5, 0]);
+  const [roomPosition, setRoomPosition] = useState([-0.17, -0.5, 0]);
   const [roomRotation, setRoomRotation] = useState([0, 0.5, 0]);
 
   // const { roomX, roomY, roomZ } = useControls({
